@@ -1,0 +1,24 @@
+{
+  "name": "rest-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogeriopedrof/rest-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/rogeriopedrof/rest-express/issues"
+  },
+  "homepage": "https://github.com/rogeriopedrof/rest-express#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
