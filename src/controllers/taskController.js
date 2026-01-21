@@ -1,17 +1,16 @@
 import e, { request, response } from "express";
 import { updateTaskService } from '../services/taskService';
 
-export async function updateTaskController (req: request, req: response) {
-    const { userId, taskId } = req.params;
+export async function updateTaskController (req: request, res: response) {
+    const {taskId } = req.params;
     const data = req.body;
 
-    if (!userId || !taskId) {
+    if (!taskId) {
         return res.status(400).json({error: 'Missing Parameters'});
     }
 
     try {
         const updateTask = await updateTaskService({
-            userId,
             taskId,
             data,
         });
