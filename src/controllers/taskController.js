@@ -14,6 +14,9 @@ export async function updateTaskController (req: request, res: response) {
             taskId,
             data,
         });
+
+        return res.status(200).json(updateTask)
+        
     } catch (error: any) {
         if (error.type === "NOT_FOUND") {
             return res.status(404).json({error: error.message});
@@ -23,6 +26,6 @@ export async function updateTaskController (req: request, res: response) {
             return res.status(403).json({error: error.message});
         }
 
-        return res.status(500).json({error: 'Internet server error'});
+        return res.status(500).json({error: 'Internal server error'});
     }
 }

@@ -3,6 +3,6 @@ import { updateTaskController } from "../controllers/taskController.js";
 
 const router = Router();
 
-router.patch('/:taskId', (req, res)=>{updateTaskController(req, res)});
+router.patch('/:taskId', (req, res)=>{updateTaskController});
 
 export default router;
