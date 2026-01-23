@@ -1,7 +1,7 @@
 import { updatedTaskService } from '../services/taskService';
 
 export async function updatedTaskController (req, res) {
-    const {taskId } = req.params;
+    const {taskId} = req.params;
     const data = req.body;
 
     if (!taskId) {
