@@ -1,7 +1,6 @@
-import { type } from 'os';
-import { getTaskById, updatedTask } from '../repositories/taskRepository.js'
+import { getTaskById, updateTask } from '../repositories/taskRepository.js'
 
-export async function updatedTaskService({taskId, data}) {
+export async function updateTaskService({taskId, data}) {
     
     const task = await getTaskById(taskId);
 
@@ -19,7 +18,7 @@ export async function updatedTaskService({taskId, data}) {
         }
     }
 
-    const updatedTask = await updatedTask(taskId, data);
+    const updatedTask = await updateTask(taskId, data);
 
     return updatedTask;
 }

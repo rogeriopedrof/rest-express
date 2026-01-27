@@ -10,7 +10,7 @@ export async function getTaskById(taskId) {
     });
 }
 
-export async function updatedTask(taskId, data) {
+export async function updateTask(taskId, data) {
     return prisma.task.update({
         where: {
             id: Number(taskId),
