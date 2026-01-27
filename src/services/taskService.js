@@ -1,10 +1,11 @@
+import { type } from 'os';
 import { getTaskById, updatedTask } from '../repositories/taskRepository.js'
 
 export async function updatedTaskService({taskId, data}) {
     
     const task = await getTaskById(taskId);
 
-    if (!taskId) {
+    if (!task) {
         throw {
             type: "NOT_FOUND",
             message: "Task not found",
