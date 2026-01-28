@@ -1,7 +1,23 @@
-import { updatedTaskService } from '../services/taskService';
+import { createTaskService, updateTaskService } from '../services/taskService';
 
-export async function updatedTaskController (req, res) {
-    const taskId = req.params;
+export async function createTaskController (req, res) {
+    const data = req.body;
+
+    try {
+        const createTask = await createTaskService(data);
+
+        return res.status(200).json(createTask);
+
+    } catch (error) {
+        if (error.type === "INVALID_INPUT") {
+            return res.status(400).json({error: error.message});
+        }
+        return res.status(500).json({error: 'Internal server error'});
+    }
+}
+
+export async function updateTaskController (req, res) {
+    const {taskId} = req.params;
     const data = req.body;
 
     if (!taskId) {
@@ -9,12 +25,12 @@ export async function updatedTaskController (req, res) {
     }
 
     try {
-        const updatedTask = await updatedTaskService({
+        const updatedTask = await updateTaskService({
             taskId,
             data,
         });
 
-        return res.status(200).json(updatedTask)
+        return res.status(200).json(updatedTask);
         
     } catch (error) {
         if (error.type === "NOT_FOUND") {

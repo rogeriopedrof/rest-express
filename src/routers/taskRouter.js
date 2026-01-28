@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { updateTaskController } from "../controllers/taskController.js";
+import { createTaskController, updateTaskController } from "../controllers/taskController.js";
 
 const router = Router();
 
-router.patch('/:taskId', (req, res)=>{updateTaskController});
+router.post('/', createTaskController);
+router.patch('/:taskId', updateTaskController);
 
 export default router;

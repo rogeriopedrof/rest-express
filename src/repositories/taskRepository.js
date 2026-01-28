@@ -18,3 +18,9 @@ export async function updateTask(taskId, data) {
         data,
     });
 }
+
+export async function createTask(data) {
+    return prisma.task.create({
+        data,
+    });
+}

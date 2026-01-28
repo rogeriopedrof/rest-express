@@ -1,4 +1,19 @@
-import { getTaskById, updateTask } from '../repositories/taskRepository.js'
+import { createTask, getTaskById, updateTask } from '../repositories/taskRepository.js'
+
+export async function createTaskService({title}) {
+    
+    if (!title) {
+        throw {
+            type: "INVALID_INPUT",
+            message: "Title is required",
+        };
+    }
+
+    const task = await createTask({title,});
+
+    return task;
+
+}
 
 export async function updateTaskService({taskId, data}) {
     
@@ -15,7 +30,7 @@ export async function updateTaskService({taskId, data}) {
         throw {
             type: "INVALID_STATE",
             message: "Completed task cannot be edited",
-        }
+        };
     }
 
     const updatedTask = await updateTask(taskId, data);
